@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nur Amani · cyberpunk red</title>
-  <!-- Google Fonts: futuristic + clean -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&display=swap" rel="stylesheet" />
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nur Amani · CV with Photo</title>
+  <!-- Font Awesome 5 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* ----- RESET & GLOBAL ----- */
     * {
       margin: 0;
       padding: 0;
@@ -18,468 +15,564 @@
     }
 
     body {
-      background: #0a0a0f;
-      font-family: 'Inter', sans-serif;
-      color: #d0c8c0;
-      padding: 2rem 1.5rem;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: #f0f2f5;
       display: flex;
       justify-content: center;
-      min-height: 100vh;
       align-items: center;
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(255, 40, 40, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(255, 20, 60, 0.06) 0%, transparent 50%),
-        linear-gradient(145deg, #0b0b12 0%, #141014 100%);
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      line-height: 1.5;
+      color: #1e1e2a;
     }
 
-    /* cyberpunk red – glitch, neon, dark */
-    .cv-cyber {
+    /* card container */
+    .cv-card {
       max-width: 1100px;
       width: 100%;
-      background: #12101a;
-      background-image: 
-        repeating-linear-gradient(45deg, rgba(255, 30, 30, 0.02) 0px, rgba(255, 30, 30, 0.02) 2px, transparent 2px, transparent 8px),
-        radial-gradient(circle at 30% 40%, #1f1218 0%, #0d0b12 90%);
-      box-shadow: 0 20px 60px rgba(255, 20, 40, 0.15), 0 0 0 1px #c0392b inset, 0 0 20px rgba(255, 40, 40, 0.2);
-      border-radius: 24px 8px 24px 8px;
-      padding: 2.8rem 3rem;
-      transition: 0.2s;
-      position: relative;
-      border: 1px solid #a0332a;
-      backdrop-filter: blur(1px);
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    /* glitch line effect */
-    .cv-cyber::before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
-      border: 1px solid rgba(255, 60, 60, 0.15);
-      border-radius: 18px 4px 18px 4px;
-      pointer-events: none;
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.05) inset;
-    }
-
-    /* neon scanline */
-    .cv-cyber::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(0deg, rgba(255, 0, 0, 0.02) 0px, rgba(255, 0, 0, 0.02) 2px, transparent 2px, transparent 6px);
-      pointer-events: none;
-      border-radius: inherit;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      color: #ff4d4d;
-      text-shadow: 0 0 12px rgba(255, 30, 30, 0.6), 0 0 40px rgba(255, 0, 0, 0.2);
-      border-bottom: 2px solid #ff2a2a;
-      display: inline-block;
-      padding-bottom: 0.2rem;
-      margin-bottom: 0.2rem;
-      letter-spacing: 3px;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-      color: #ff6666;
-      margin-top: 1.8rem;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      border-bottom: 1px solid #882a2a;
-      padding-bottom: 0.4rem;
-      text-shadow: 0 0 8px rgba(255, 40, 40, 0.3);
-      letter-spacing: 2px;
-    }
-
-    h2 i {
-      color: #ff4d4d;
-      font-size: 1.2rem;
-      width: 1.8rem;
-      text-shadow: 0 0 8px #ff2a2a;
-    }
-
-    .subhead {
-      font-weight: 300;
-      color: #b0a0a0;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
+    /* ----- HEADER (name + contact + photo) ----- */
+    .profile-header {
+      background: linear-gradient(145deg, #0b1a2e, #1a2f44);
+      color: white;
+      padding: 1.8rem 2.8rem 1.8rem 2.8rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem 2rem;
-      margin-top: 0.2rem;
-      margin-bottom: 1.2rem;
-      background: rgba(20, 10, 15, 0.7);
-      padding: 0.5rem 1.5rem;
-      border-radius: 40px;
-      backdrop-filter: blur(4px);
-      border: 1px solid #5f2a2a;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.05);
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid #fbbf24;
+      gap: 1rem;
     }
 
-    .subhead i {
-      margin-right: 6px;
-      color: #ff5e5e;
-      width: 1.2rem;
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      flex-wrap: wrap;
     }
 
-    .summary-block {
-      background: rgba(30, 12, 16, 0.7);
-      backdrop-filter: blur(6px);
-      padding: 1.2rem 2rem;
-      border-radius: 20px 4px 20px 4px;
-      margin: 1.5rem 0 2rem 0;
-      border-left: 6px solid #ff2a2a;
-      font-weight: 300;
-      color: #e0d0c8;
-      box-shadow: 0 0 30px rgba(255, 20, 20, 0.08);
-      font-size: 1rem;
-      line-height: 1.6;
-      border-right: 1px solid #4f2020;
+    /* profile photo — circular with border */
+    .profile-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fbbf24;
+      background: #2a3f55;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      flex-shrink: 0;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.8rem 2.5rem;
-      margin-top: 0.2rem;
+    .name-title h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.3rem;
     }
 
-    .info-chip {
+    .name-title .badge {
       display: inline-block;
-      background: #1f1218;
-      padding: 0.2rem 1.1rem;
+      background: rgba(251, 191, 36, 0.2);
+      padding: 0.3rem 1.2rem;
       border-radius: 40px;
-      font-size: 0.75rem;
-      margin-right: 0.4rem;
-      margin-bottom: 0.45rem;
-      border: 1px solid #6f2a2a;
-      font-weight: 300;
-      color: #e0c8c0;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      backdrop-filter: blur(4px);
+      color: #fde68a;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      margin-top: 0.5rem;
+    }
+
+    .contact-info i {
+      color: #fbbf24;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .contact-info a {
+      color: #eef2ff;
+      text-decoration: none;
+      transition: 0.2s;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .contact-info a:hover {
+      color: #fbbf24;
+      border-bottom-color: #fbbf24;
+    }
+
+    /* ----- MAIN LAYOUT (2 cols) ----- */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 0;
+      background: #fafcff;
+    }
+
+    /* ----- SIDEBAR (left) ----- */
+    .sidebar {
+      background: #f3f6fc;
+      padding: 2rem 1.8rem;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .sidebar section {
+      margin-bottom: 2.4rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      color: #1e3a5f;
+      border-bottom: 2px solid #d0ddeb;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .info-chip i {
-      margin-right: 6px;
-      color: #ff4d4d;
+    .section-title i {
+      color: #fbbf24;
+      font-size: 1.1rem;
+      width: 1.6rem;
     }
 
     .skill-group {
-      margin-bottom: 1rem;
+      margin-bottom: 1.6rem;
     }
 
-    .skill-group .label {
-      font-weight: 600;
-      color: #ff7a7a;
-      display: block;
-      margin-bottom: 0.2rem;
+    .skill-group h4 {
       font-size: 0.8rem;
-      letter-spacing: 1.5px;
       text-transform: uppercase;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem 0.1rem;
-    }
-
-    .skill-tags .chip {
-      background: #1f1218;
-      border: 1px solid #6f2a2a;
-      color: #e0c8c0;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 300;
       letter-spacing: 0.3px;
-      text-transform: uppercase;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.03);
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
 
-    .exp-item, .edu-item {
-      margin-bottom: 1.2rem;
-      padding-left: 0.2rem;
-      border-left: 3px solid transparent;
-      padding-left: 0.9rem;
-      transition: 0.1s;
-    }
-
-    .exp-item:hover, .edu-item:hover {
-      border-left-color: #ff4d4d;
-    }
-
-    .exp-item h3, .edu-item h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 400;
-      color: #ffa0a0;
-      font-size: 1rem;
-      margin-bottom: 0.1rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .exp-item .meta, .edu-item .meta {
-      font-size: 0.7rem;
-      color: #b08080;
+    .skill-chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.3rem 1.2rem;
-      margin-bottom: 0.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      gap: 0.45rem 0.7rem;
     }
 
-    .exp-item .meta i, .edu-item .meta i {
-      width: 1.2rem;
-      color: #ff4d4d;
+    .chip {
+      background: white;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #0b1a2e;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      border: 1px solid #dbe1ed;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .exp-item p, .edu-item p {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: #d0b8b0;
-      margin-top: 0.15rem;
+    .chip i {
+      font-size: 0.7rem;
+      color: #f59e0b;
     }
 
-    .exp-item ul {
+    .chip.advanced { background: #e1edfb; border-color: #aac2e6; }
+    .chip.intermediate { background: #f1f4fa; border-color: #cbd5e1; }
+
+    .tech-list {
       list-style: none;
-      padding-left: 0.2rem;
-      margin-top: 0.2rem;
+      padding: 0;
     }
 
-    .exp-item ul li {
-      padding: 0.1rem 0;
-      font-weight: 300;
-      color: #d0b8b0;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .exp-item ul li i {
-      color: #ff4d4d;
-      font-size: 0.6rem;
-      width: 1rem;
-    }
-
-    .refined-list {
-      list-style: none;
-      margin: 0.2rem 0;
-    }
-
-    .refined-list li {
-      padding: 0.25rem 0;
-      border-bottom: 1px solid #3a1a1a;
+    .tech-list li {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 300;
-      color: #d0b8b0;
-      font-size: 0.85rem;
+      gap: 0.6rem;
+      padding: 0.3rem 0;
+      font-size: 0.9rem;
+      border-bottom: 1px dashed #e2e8f0;
     }
 
-    .refined-list li i {
-      color: #ff4d4d;
-      width: 1.6rem;
+    .tech-list li i {
+      color: #fbbf24;
+      width: 1.2rem;
       font-size: 0.9rem;
     }
 
-    .footer-note {
-      margin-top: 2.2rem;
-      border-top: 1px solid #4f2020;
-      padding-top: 1rem;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.7rem;
-      color: #b06060;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-family: 'Orbitron', sans-serif;
+    .edu-item {
+      margin-bottom: 1.2rem;
     }
 
-    .footer-note i {
-      margin: 0 6px;
-      color: #ff4d4d;
+    .edu-item strong {
+      display: block;
+      font-size: 1rem;
+      color: #0b1a2e;
     }
 
-    /* glitch badge */
-    .glitch-badge {
-      background: #1f0f0f;
-      padding: 0.2rem 1.2rem;
-      border-radius: 40px;
-      border: 1px solid #ff2a2a;
-      font-size: 0.7rem;
+    .edu-item .meta {
+      font-size: 0.8rem;
+      color: #2c3e50;
+      background: #e9eff7;
+      display: inline-block;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      margin: 0.2rem 0 0.2rem 0;
+    }
+
+    .edu-item .cgpa {
+      background: #0b1a2e;
+      color: white;
+      padding: 0.1rem 1rem;
+      border-radius: 30px;
       font-weight: 600;
-      letter-spacing: 1.5px;
-      color: #ff7a7a;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-      text-transform: uppercase;
+      font-size: 0.8rem;
+      display: inline-block;
     }
 
-    @media (max-width: 750px) {
-      .cv-cyber {
+    .edu-item p {
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: #1e293b;
+    }
+
+    /* ----- MAIN CONTENT (right) ----- */
+    .main-content {
+      padding: 2rem 2.2rem;
+      background: white;
+    }
+
+    .main-content section {
+      margin-bottom: 2.4rem;
+    }
+
+    .main-content .section-title {
+      border-bottom: 2px solid #e9edf4;
+      color: #0b1a2e;
+    }
+
+    .summary-text {
+      font-size: 1rem;
+      color: #1e293b;
+      line-height: 1.6;
+      background: #f8faff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 20px;
+      border-left: 5px solid #fbbf24;
+    }
+
+    .internship-block {
+      background: #f8faff;
+      padding: 1.2rem 1.6rem;
+      border-radius: 20px;
+      margin-top: 0.5rem;
+    }
+
+    .internship-block .company {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0b1a2e;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .internship-block .company i {
+      color: #fbbf24;
+      font-size: 1.2rem;
+    }
+
+    .internship-block .year {
+      font-size: 0.85rem;
+      color: #475569;
+      background: #e9eff7;
+      padding: 0.1rem 0.8rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 0.2rem 0 0.5rem 0;
+    }
+
+    .internship-block ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.5rem;
+    }
+
+    .internship-block ul li {
+      padding: 0.3rem 0 0.3rem 1.8rem;
+      position: relative;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #e9edf4;
+    }
+
+    .internship-block ul li:last-child {
+      border-bottom: none;
+    }
+
+    .internship-block ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #fbbf24;
+      font-weight: bold;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 800px) {
+      .cv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
         padding: 1.8rem;
       }
-      .grid-2 {
-        grid-template-columns: 1fr;
-        gap: 0.2rem;
+
+      .header-left {
+        width: 100%;
+        gap: 1rem;
       }
-      h1 {
+
+      .contact-info {
+        flex-wrap: wrap;
+        gap: 0.8rem 1.2rem;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+      }
+
+      .name-title h1 {
         font-size: 2rem;
       }
+
+      .main-content {
+        padding: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-info {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .name-title h1 {
+        font-size: 1.7rem;
+      }
+
+      .profile-photo {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    .badge-icon {
+      background: #fbbf24;
+      color: #0b1a2e;
+      border-radius: 30px;
+      padding: 0.1rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .mini-card {
+      background: #0b1a2e;
+      color: white;
+      padding: 1rem 1.2rem;
+      border-radius: 24px;
+    }
+
+    .mini-card p {
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mini-card i {
+      color: #fbbf24;
     }
   </style>
 </head>
 <body>
-<div class="cv-cyber">
+<div class="cv-card">
 
-  <!-- header -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end;">
-    <div>
-      <h1>✦ NUR AMANI ✦</h1>
-      <div class="subhead">
-        <span><i class="fas fa-map-pin"></i> Kg Baru Pupoh, Selising, Pasir Puteh Kelantan</span>
-        <span><i class="fas fa-phone-alt"></i> 017-937 7269</span>
-        <span><i class="fas fa-envelope"></i> amanirizal94@gmail.com</span>
+  <!-- HEADER with PHOTO -->
+  <header class="profile-header">
+    <div class="header-left">
+      <!-- PROFILE PICTURE – replace src with your own image -->
+      <img class="profile-photo" src="https://ui-avatars.com/api/?name=Nur+Amani&size=80&background=1a2f44&color=fbbf24&bold=true&font-size=0.5" alt="Profile photo of Nur Amani">
+      <div class="name-title">
+        <h1>NUR AMANI BINTI RIZAL ASWANDI</h1>
+        <span class="badge"><i class="fas fa-code" style="margin-right: 6px;"></i> IT · Digital Technology</span>
       </div>
     </div>
-    <div class="glitch-badge">
-      <i class="fas fa-microchip"></i> CGPA 3.67
+    <div class="contact-info">
+      <span><i class="fas fa-map-pin"></i> Kg Baru Pupoh, Selising, Pasir Puteh, Kelantan</span>
+      <span><i class="fas fa-phone-alt"></i> 017-937 7269</span>
+      <span><i class="fas fa-envelope"></i> <a href="mailto:amanirizal94@gmail.com">amanirizal94@gmail.com</a></span>
     </div>
-  </div>
+  </header>
 
-  <!-- summary -->
-  <div class="summary-block">
-    <i class="fas fa-quote-left" style="color: #ff4d4d; margin-right: 12px; opacity: 0.8;"></i>
-    <span style="font-weight: 300;">To obtain a position within a well-established organization in the field of computer and information technology, seeking to immerse myself in the workplace environment to gain valuable experience and contribute to the organization's success while advancing my own development.</span>
-  </div>
+  <!-- GRID -->
+  <div class="cv-grid">
 
-  <!-- grid -->
-  <div class="grid-2">
-    <!-- LEFT -->
-    <div>
+    <!-- SIDEBAR (left) -->
+    <aside class="sidebar">
+      <!-- COMPUTER SKILLS -->
+      <section>
+        <div class="section-title"><i class="fas fa-laptop-code"></i> Computer Skills</div>
+
+        <!-- Languages -->
+        <div class="skill-group">
+          <h4><i class="fas fa-code" style="margin-right: 6px; color: #fbbf24;"></i> Language</h4>
+          <div class="skill-chips">
+            <span class="chip intermediate"><i class="fas fa-circle"></i> C++ (Inter)</span>
+            <span class="chip intermediate"><i class="fas fa-circle"></i> Java (Inter)</span>
+            <span class="chip advanced"><i class="fas fa-circle"></i> SQL (Adv)</span>
+            <span class="chip advanced"><i class="fas fa-circle"></i> PHP (Adv)</span>
+          </div>
+        </div>
+
+        <!-- Software -->
+        <div class="skill-group">
+          <h4><i class="fas fa-edit" style="margin-right: 6px; color: #fbbf24;"></i> Software</h4>
+          <div class="skill-chips">
+            <span class="chip intermediate">MS Word</span>
+            <span class="chip intermediate">MS PowerPoint</span>
+            <span class="chip intermediate">Adobe Acrobat</span>
+            <span class="chip intermediate">Adobe Dreamweaver</span>
+            <span class="chip advanced">Canva</span>
+            <span class="chip intermediate">Visual Studio</span>
+            <span class="chip intermediate">Bootstrap</span>
+          </div>
+        </div>
+
+        <!-- Hardware -->
+        <div class="skill-group">
+          <h4><i class="fas fa-microchip" style="margin-right: 6px; color: #fbbf24;"></i> Hardware</h4>
+          <ul class="tech-list">
+            <li><i class="fas fa-laptop"></i> Laptop (Intermediate)</li>
+            <li><i class="fas fa-print"></i> Printer (Intermediate)</li>
+          </ul>
+        </div>
+
+        <!-- Technology -->
+        <div class="skill-group">
+          <h4><i class="fas fa-cloud" style="margin-right: 6px; color: #fbbf24;"></i> Technology</h4>
+          <ul class="tech-list">
+            <li><i class="fas fa-mobile-alt"></i> Mobile Computing (Intermediate)</li>
+            <li><i class="fas fa-globe"></i> Web Based (Advanced)</li>
+          </ul>
+        </div>
+      </section>
+
       <!-- EDUCATION -->
-      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-      <div class="edu-item">
-        <h3>Diploma in Information Technology (Technology Digital)</h3>
-        <div class="meta">
-          <span><i class="fas fa-university"></i> Politeknik Sultan Mizan Zainal Abidin</span>
+      <section>
+        <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+        <div class="edu-item">
+          <strong>Diploma in Information Technology <br>(Digital Technology)</strong>
+          <span class="meta">Politeknik Sultan Mizan Zainal Abidin</span>
+          <span class="cgpa">CGPA: 3.67</span>
+          <p>Relevant coursework: Computer Science &amp; Mathematics</p>
         </div>
-        <p style="background: #1f1218; display: inline-block; padding: 0.1rem 1.2rem; border-radius: 30px; border: 1px solid #6f2a2a; font-weight: 400; margin-top: 0.2rem; color: #ffa0a0;">
-          CGPA: 3.67
-        </p>
-        <p style="margin-top: 0.3rem; font-size: 0.8rem; color: #b08080;">
-          <i class="fas fa-book-open" style="color: #ff4d4d;"></i> Relevant coursework: computer sciences &amp; mathematical
-        </p>
-      </div>
-      <div class="edu-item">
-        <h3>SPM · Sekolah Menengah Kebangsaan Selising</h3>
-        <div class="meta">
-          <span><i class="fas fa-certificate"></i> Result: 1A 3B 2C 1D 2E</span>
+        <div class="edu-item">
+          <strong>SPM</strong>
+          <span class="meta">Sekolah Menengah Kebangsaan Selising</span>
+          <p style="font-weight: 500; background: #e9eff7; padding: 0.2rem 1rem; border-radius: 40px; display: inline-block;">1A 3B 2C 1D 2E</p>
         </div>
-      </div>
+      </section>
 
-      <!-- INTERNSHIP -->
-      <h2 style="margin-top: 2rem;"><i class="fas fa-briefcase"></i> Internship</h2>
-      <div class="exp-item">
-        <h3>Kolej Matrikulasi Kelantan</h3>
-        <div class="meta">
-          <span><i class="fas fa-calendar-alt"></i> 2023</span>
-          <span><i class="fas fa-map-pin"></i> Kelantan</span>
+      <!-- extra / summary mini -->
+      <section style="margin-top: 1.2rem;">
+        <div class="mini-card">
+          <p><i class="fas fa-bullseye"></i> <strong>Career goal:</strong> IT position · growth &amp; contribution</p>
         </div>
-        <ul>
-          <li><i class="fas fa-caret-right"></i> Created complaint system (hardware) using Access, PHP, PhpMyAdmin, MySQL, CSS.</li>
-          <li><i class="fas fa-caret-right"></i> Designed bunting for event using Canva.</li>
-          <li><i class="fas fa-caret-right"></i> Maintenance tasks.</li>
-        </ul>
-      </div>
-    </div>
+      </section>
+    </aside>
 
-    <!-- RIGHT -->
-    <div>
-      <h2><i class="fas fa-microchip"></i> Computer Skills</h2>
-
-      <div class="skill-group">
-        <span class="label"><i class="fas fa-code" style="color: #ff4d4d; margin-right: 6px;"></i>Language</span>
-        <div class="skill-tags">
-          <span class="chip">C++ · Intermediate</span>
-          <span class="chip">Java · Intermediate</span>
-          <span class="chip">SQL · Advanced</span>
-          <span class="chip">PHP · Advanced</span>
+    <!-- MAIN CONTENT (right) -->
+    <main class="main-content">
+      <!-- SUMMARY -->
+      <section>
+        <div class="section-title"><i class="fas fa-user-astronaut"></i> Summary</div>
+        <div class="summary-text">
+          <i class="fas fa-quote-left" style="color: #fbbf24; margin-right: 6px;"></i>
+          To obtain a position within a well-established organization in the field of computer and information technology, seeking to immerse myself in the workplace environment to gain valuable experience and contribute to the organization's success while advancing my own development.
         </div>
-      </div>
+      </section>
 
-      <div class="skill-group">
-        <span class="label"><i class="fas fa-laptop" style="color: #ff4d4d; margin-right: 6px;"></i>Software</span>
-        <div class="skill-tags">
-          <span class="chip">MS Word · Interm.</span>
-          <span class="chip">MS PowerPoint · Interm.</span>
-          <span class="chip">Adobe Acrobat · Interm.</span>
-          <span class="chip">Adobe Dreamweaver · Interm.</span>
-          <span class="chip">Canva · Advanced</span>
-          <span class="chip">Visual Studio · Interm.</span>
-          <span class="chip">Bootstrap · Interm.</span>
+      <!-- INTERNSHIP EXPERIENCE -->
+      <section>
+        <div class="section-title"><i class="fas fa-briefcase"></i> Internship Experience</div>
+        <div class="internship-block">
+          <div class="company">
+            <i class="fas fa-university"></i> Kolej Matrikulasi Kelantan
+          </div>
+          <span class="year"><i class="far fa-calendar-alt"></i> 2023</span>
+
+          <ul>
+            <li><strong>Complaint system (hardware items)</strong> — developed using Access, PHP, PhpMyAdmin, MySQL, and CSS. Employees can file complaints digitally.</li>
+            <li><strong>Bunting design</strong> — created promotional bunting for events using Canva.</li>
+            <li><strong>Maintenance tasks</strong> — assisted with IT maintenance and support.</li>
+          </ul>
+
+          <div style="margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.4rem;">
+            <span class="chip" style="background: #0b1a2e; color: white; border: none;"><i class="fas fa-database"></i> MySQL</span>
+            <span class="chip" style="background: #0b1a2e; color: white; border: none;"><i class="fas fa-code"></i> PHP</span>
+            <span class="chip" style="background: #0b1a2e; color: white; border: none;"><i class="fab fa-css3-alt"></i> CSS</span>
+            <span class="chip" style="background: #0b1a2e; color: white; border: none;"><i class="fas fa-paint-brush"></i> Canva</span>
+            <span class="chip" style="background: #0b1a2e; color: white; border: none;"><i class="fas fa-server"></i> PhpMyAdmin</span>
+          </div>
         </div>
-      </div>
-
-      <div class="skill-group">
-        <span class="label"><i class="fas fa-desktop" style="color: #ff4d4d; margin-right: 6px;"></i>Hardware</span>
-        <div class="skill-tags">
-          <span class="chip">Laptop · Interm.</span>
-          <span class="chip">Printer · Interm.</span>
+        <div style="margin-top: 1rem; font-size: 0.9rem; background: #f1f5f9; padding: 0.5rem 1.2rem; border-radius: 40px; display: inline-block;">
+          <i class="fas fa-tasks" style="color: #fbbf24;"></i> System built: complaint management · hardware tracking
         </div>
-      </div>
+      </section>
 
-      <div class="skill-group">
-        <span class="label"><i class="fas fa-cloud" style="color: #ff4d4d; margin-right: 6px;"></i>Technology</span>
-        <div class="skill-tags">
-          <span class="chip">Mobile Computing · Interm.</span>
-          <span class="chip">Web Based · Advanced</span>
+      <!-- extra highlight -->
+      <section style="margin-top: 1.5rem; border-top: 1px solid #e9edf4; padding-top: 1.5rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem 1.8rem; justify-content: flex-start;">
+          <div><i class="fas fa-check-circle" style="color: #fbbf24;"></i> <strong>CGPA 3.67</strong> · Diploma IT</div>
+          <div><i class="fas fa-check-circle" style="color: #fbbf24;"></i> <strong>Advanced</strong> · SQL, PHP, Web</div>
+          <div><i class="fas fa-check-circle" style="color: #fbbf24;"></i> <strong>Internship</strong> · Kolej Matrikulasi Kelantan</div>
         </div>
-      </div>
-
-      <!-- EXTRA CURRICULAR -->
-      <h2 style="margin-top: 2rem;"><i class="fas fa-star"></i> Extra Curricular</h2>
-      <ul class="refined-list">
-        <li><i class="fas fa-paint-brush"></i> Event design (bunting, posters) using Canva</li>
-        <li><i class="fas fa-users"></i> Collaborative complaint system development</li>
-        <li><i class="fas fa-tools"></i> Hardware maintenance &amp; troubleshooting</li>
-      </ul>
-
-      <div style="margin-top: 1.2rem; background: #1f1218; padding: 0.4rem 1.2rem; border-radius: 40px; border: 1px solid #6f2a2a; display: inline-block; box-shadow: 0 0 20px rgba(255, 0, 0, 0.05);">
-        <i class="fas fa-bolt" style="color: #ff4d4d;"></i> 
-        <span style="font-weight: 300; letter-spacing: 1px; font-size: 0.75rem; text-transform: uppercase;">Web · SQL · PHP · Canva</span>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
-
   <!-- footer -->
-  <div class="footer-note">
-    <span><i class="fas fa-skull"></i> cyberpunk red</span>
-    <span><i class="fas fa-bolt"></i>  //  NEON  //  <i class="fas fa-bolt"></i></span>
-    <span><i class="fas fa-code"></i> 2026</span>
+  <div style="background: #f8fafc; padding: 0.8rem 2rem; text-align: right; font-size: 0.7rem; color: #64748b; border-top: 1px solid #e2e8f0;">
+    <i class="fas fa-user-circle"></i> professional CV · Nur Amani
   </div>
-
 </div>
+<!-- end card -->
 </body>
 </html>
